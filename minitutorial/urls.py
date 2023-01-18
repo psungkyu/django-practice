@@ -15,14 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from bbs.views import hello, list_contents, read_content, create_content, delete_content, update_content
-
+from bbs.views import hello, ArticleListView, ArticleDetailView, ArticleCreateUpdateView
 urlpatterns = [
     path('hello/<to>', hello),
     path('admin/', admin.site.urls),
-    path('article/', list_contents),
-    path('article/<input_id>', read_content),
-    path('article/create/', create_content, {'article_id': None}),
-    path('article/<input_id>/update', update_content),
+    path('article/', ArticleListView.as_view()),
+    path('article/<input_id>', ArticleDetailView.as_view()),
+    path('article/create/', ArticleCreateUpdateView.as_view()),
+    path('article/<input_id>/update', ArticleCreateUpdateView.as_view()),
     path('article/<input_id>/delete', delete_content),
 ]
