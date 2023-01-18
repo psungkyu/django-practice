@@ -21,8 +21,8 @@ urlpatterns = [
     path('hello/<to>', hello),
     path('admin/', admin.site.urls),
     path('article/', list_contents),
-    path('article/<content_id>', read_content),
+    path('article/<input_id>', read_content),
     path('article/create/', create_content, {'article_id': None}),
-    path('article/<content_id>/update', update_content),
-    path('article/<content_id>/delete', delete_content),
+    path('article/<input_id>/update', update_content),
+    path('article/<input_id>/delete', delete_content),
 ]
